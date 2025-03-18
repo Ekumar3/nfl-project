@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Initialize AWS Clients
-s3 = boto3.client("s3", region_name="us-east-2")  # Change this to your AWS region
+s3 = boto3.client("s3", region_name="us-east-2") 
 lambda_client = boto3.client("lambda", region_name="us-east-2")
 S3_BUCKET = "nfl-player-analysis-results"
 
@@ -20,7 +20,6 @@ def search_qb():
 
     # Format file name for S3 lookup
     s3_file = f"{qb_name.replace(' ', '_').lower()}_prediction.json"
-    print(f"Looking for file in S3: {s3_file}")
 
     # Check if data is already in S3
     try:
@@ -35,7 +34,6 @@ def search_qb():
             Payload=json.dumps({"player_name": qb_name})
         )
         new_data =  json.loads(response["Payload"].read())
-        print("Newly generated data:", new_data)
         predicted_data = new_data.get("predicted_data",{}).get("data",{})
         return jsonify(predicted_data)
 
