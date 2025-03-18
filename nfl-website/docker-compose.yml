@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+
+  backend:
+    build: /home/ec2-user/nfl-api  # Make sure this is the correct path to your Flask API
+    ports:
+      - "5000:5000"
+    restart: always
