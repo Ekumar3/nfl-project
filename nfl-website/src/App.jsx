@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <h1>NFL QB Stats</h1>
+      <h1>Using 2024 NFL QB Stats to Predict 2025 QB Stats </h1>
       <div>
         <input
           type="text"
