@@ -6,7 +6,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./backend:/app
+      - ./nfl-api:/app
     environment:
       - FLASK_ENV=production
     restart: unless-stopped
@@ -16,9 +16,9 @@ services:
     ports:
       - "80:3000"
     volumes:
-      - ./frontend:/app
+      - ./nfl-website:/app
     environment:
-      - REACT_APP_API_URL=http://nfl-api:5000
+      - REACT_APP_API_URL=http://3.137.179.246:5000
     depends_on:
       - nfl-api
     restart: unless-stopped
