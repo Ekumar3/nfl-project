@@ -15,7 +15,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copy built React app from previous step to Nginx's web root
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose port 80 for web traffic
 EXPOSE 80
