@@ -26,7 +26,7 @@ function App() {
           type="text"
           value={qbName}
           onChange={(e) => setQbName(e.target.value)}
-          placeholder="Enter QB Name"
+          placeholder="Enter a 2024 QB Name"
         />
         <button onClick={fetchStats}>Get Stats</button>
       </div>

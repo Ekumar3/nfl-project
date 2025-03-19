@@ -17,6 +17,7 @@ services:
       - "8080:80"
     volumes:
       - ./nfl-website:/app
+    # Points to the API
     environment:
       - REACT_APP_API_URL=http://3.137.179.246:5000
     depends_on:
