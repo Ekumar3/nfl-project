@@ -1,4 +1,4 @@
-# Step 1: Build the React app
+# Builds the React app
 FROM node:18 AS build
 
 WORKDIR /app

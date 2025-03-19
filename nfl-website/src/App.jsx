@@ -8,6 +8,7 @@ function App() {
   const [qbName, setQbName] = useState("");
   const [qbStats, setQbStats] = useState(null);
 
+  // Function to call the API once the get stats button is clicked
   const fetchStats = async () => {
     try {
       const response = await axios.get(`http://3.137.179.246:5000/search?qb_name=${qbName}`);
@@ -31,6 +32,7 @@ function App() {
         <button onClick={fetchStats}>Get Stats</button>
       </div>
 
+      {/* Once qbStats is populated, this gets displayed on the webpage */}
       {qbStats && (
         <div className="stats">
         <h2>{qbStats.player}</h2>

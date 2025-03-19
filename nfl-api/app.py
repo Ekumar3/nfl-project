@@ -12,6 +12,7 @@ s3 = boto3.client("s3", region_name="us-east-2")
 lambda_client = boto3.client("lambda", region_name="us-east-2")
 S3_BUCKET = "nfl-player-analysis-results"
 
+# Determines the route for this method in the api 
 @app.route("/search", methods=["GET"])
 def search_qb():
     qb_name = request.args.get("qb_name")
@@ -35,6 +36,7 @@ def search_qb():
         )
         new_data =  json.loads(response["Payload"].read())
         predicted_data = new_data.get("predicted_data",{}).get("data",{})
+        # returns it to be displayed on the website
         return jsonify(predicted_data)
 
 if __name__ == "__main__":

@@ -1,5 +1,3 @@
-# version: '3.8'
-
 services:
   nfl-api:
     build: ./nfl-api
